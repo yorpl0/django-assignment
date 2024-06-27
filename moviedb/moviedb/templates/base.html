@@ -1,0 +1,32 @@
+<!-- base.html -->
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Movie Database{% endblock %}</title>
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-right">
+                <a href="{% url 'add_movie' %}" class="home-button">Add Movie</a>
+                <a href="{% url 'movie_list' %}" class="home-button">Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+        &copy; 2024 My Movie Database. All rights reserved.
+    </footer>
+</body>
+</html>

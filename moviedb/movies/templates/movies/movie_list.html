@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <!-- Other navigation items can go here -->
+        </div>
+        <div class="nav-right">
+            <a href="#" class="home-button">Home</a>
+        </div>
+    </nav>
+    <div class="grid-container">
+        {% for movie in movies %}
+        <div class="grid-item">
+            <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+            <a href="{% url 'movie_detail' movie.pk %}" class="movie-title" title="{{ movie.title }}">
+                {{ movie.title|truncatechars:15 }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
